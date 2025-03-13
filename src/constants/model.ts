@@ -1,0 +1,1 @@
+export const modelName = "qwen2.5:3b-instruct"
