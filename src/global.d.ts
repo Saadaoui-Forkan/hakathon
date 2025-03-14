@@ -9,3 +9,8 @@ type EvaluateAnswerParams = {
     answer: string;
     question: string;
 } & Pick<GenerateQuestionsParams, "field" | "topic">
+
+type SpecializationFieldSuggestion = {
+    fieldName: string;
+    topics: string[]
+}
