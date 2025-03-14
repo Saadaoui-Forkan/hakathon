@@ -1,5 +1,3 @@
-import { GenerateQuestionsParams } from "@/lib/generateQuestions"
-
 const multiOptionsPrompt = `
 Always provide the questions strictly as a valid JSON array of objects without any extra text or prefixes,
 Each object should represent a question with four answer options, formatted as follows: 

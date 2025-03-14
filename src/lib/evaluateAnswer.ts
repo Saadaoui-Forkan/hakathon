@@ -1,11 +1,5 @@
-import { GenerateQuestionsParams } from './generateQuestions';
 import { modelName } from '@/constants/model';
 import ollamaClient from './ollamaClient';
-
-type EvaluateAnswerParams = {
-    answer: string;
-    question: string;
-} & Pick<GenerateQuestionsParams, "field" | "topic">
 
 export default async function evaluateAnswer({ field, topic, answer, question }: EvaluateAnswerParams) {
     const response = await ollamaClient.chat({
