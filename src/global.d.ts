@@ -14,3 +14,8 @@ type SpecializationFieldSuggestion = {
     fieldName: string;
     topics: string[]
 }
+
+type MultiOptionsQuestion = {
+    question: string;
+    options: string[];
+}
