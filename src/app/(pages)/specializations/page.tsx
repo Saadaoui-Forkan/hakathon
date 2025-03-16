@@ -1,14 +1,22 @@
+"use client"
+
 import { specializationFields } from '@/constants/specializationFields'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 
 const Specializations = () => {
+  const router = useRouter();
+
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: "url('/bg.jpg')" }}
     >
       <div className="w-full max-w-3xl p-6 rounded-lg">
-        <button className="bg-crystalTeal text-white px-6 py-1 rounded-lg mb-4">
+        <button
+          className="bg-crystalTeal text-white px-6 py-1 rounded-lg mb-4"
+          onClick={() => { router.replace("/") }}
+        >
           Back
         </button>
         <h1 className="text-white text-2xl font-bold">

@@ -2,20 +2,25 @@
 
 import { specializationFields } from '@/constants/specializationFields';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import React from 'react'
 
 const Topic = () => {
-    const params = useParams<{ id: string }>();
-    const topic = decodeURIComponent(params.id)
-    const currentSpecialization = specializationFields.filter(el => el.fieldName === topic)
+  const params = useParams<{ id: string }>();
+  const router = useRouter();
+  const topic = decodeURIComponent(params.id)
+  const currentSpecialization = specializationFields.filter(el => el.fieldName === topic)
+
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: "url('/bg.jpg')" }}
     >
       <div className="w-full max-w-3xl p-6 rounded-lg">
-        <button className="bg-crystalTeal text-white px-6 py-1 rounded-lg mb-4">
+        <button
+          className="bg-crystalTeal text-white px-6 py-1 rounded-lg mb-4"
+          onClick={() => { router.replace("/specializations") }}
+        >
           Back
         </button>
         <h1 className="text-white text-2xl font-bold">
