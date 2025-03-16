@@ -20,3 +20,7 @@ export const specializationFields: SpecializationFieldSuggestion[] = [
         topics: ["grammar roles"]
     },
 ]
+
+export const levels = ["Easy", "Medium", "Advanced", "Expert"]
+
+export const questionTypes = ["Multi Options", "True or False", "Essay", "Short Answer"]

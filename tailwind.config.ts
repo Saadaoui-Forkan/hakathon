@@ -7,7 +7,17 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        deepAmethyst: "#610072",
+        pureWhite: "#FFFFFF",
+        electricMagenta: "#B600C6",
+        crystalTeal : "#56D4C8",
+      },
+      fontFamily: {
+        cairo: ['"Cairo", sans-serif'],
+      }
+    }
   },
   plugins: [],
 }
