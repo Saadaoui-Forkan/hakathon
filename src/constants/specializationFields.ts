@@ -21,6 +21,6 @@ export const specializationFields: SpecializationFieldSuggestion[] = [
     },
 ]
 
-export const levels = ["Easy", "Medium", "Advanced", "Expert"]
+export const levels: QuestionLevel[] = ["easy", "medium", "advanced"]
 
-export const questionTypes = ["Multi Options", "True or False", "Essay", "Short Answer"]
+export const questionTypes: QuestionType[] = ["multi options", "true or false", "essay"]

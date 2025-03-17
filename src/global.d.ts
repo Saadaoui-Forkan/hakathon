@@ -1,8 +1,11 @@
+type QuestionType = "multi options" | "true or false" | "essay";
+type QuestionLevel = "advanced" | "easy" | "medium";
+
 type GenerateQuestionsParams = {
     field: string;
     topic: string;
-    level: "advanced" | "easy" | "medium";
-    questionType: "multi options" | "true or false" | "essay";
+    level: QuestionLevel;
+    questionType: QuestionType;
 }
 
 type EvaluateAnswerParams = {

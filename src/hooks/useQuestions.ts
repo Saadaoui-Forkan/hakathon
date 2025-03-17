@@ -23,8 +23,8 @@ export default function useQuestions({ field, topic, level, questionType }: Gene
                     setQuestions(questions)
                     setError(false)
                 })
-                .finally(() => setLoading(false))
                 .catch(() => setError(true))
+                .finally(() => setLoading(false))
         }
     }, [])
 
