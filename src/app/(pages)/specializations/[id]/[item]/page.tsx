@@ -12,7 +12,7 @@ const QuizSelection = () => {
     const topic = decodeURIComponent(params.item)
     const router = useRouter();
 
-    const [state, setState] = useState<{ level: QuestionLevel | "", questionType: QuestionType | "" }>({
+    const [selectionState, setSelectionState] = useState<{ level: QuestionLevel | "", questionType: QuestionType | "" }>({
         level: "",
         questionType: "",
     })
@@ -25,8 +25,8 @@ const QuizSelection = () => {
                 {levels.map(level => (
                     <button
                         key={level}
-                        className={`${state.level === level ? "bg-electricMagenta/80" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
-                        onClick={() => setState((state) => ({ ...state, level }))}
+                        className={`${selectionState.level === level ? "bg-electricMagenta/80" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
+                        onClick={() => setSelectionState((selectionState) => ({ ...selectionState, level }))}
                     >
                         {level}
                     </button>
@@ -37,8 +37,8 @@ const QuizSelection = () => {
                 {questionTypes.map(type => (
                     <button
                         key={type}
-                        className={`${state.questionType === type ? "bg-electricMagenta/80" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
-                        onClick={() => setState((state) => ({ ...state, questionType: type }))}
+                        className={`${selectionState.questionType === type ? "bg-electricMagenta/80" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
+                        onClick={() => setSelectionState((selectionState) => ({ ...selectionState, questionType: type }))}
                     >
                         {type}
                     </button>
@@ -49,9 +49,9 @@ const QuizSelection = () => {
                     className="bg-teal-500 text-white px-6 py-2 rounded-lg"
                     onClick={() => {
                         const query = new URLSearchParams()
-                        if (state.level && state.questionType) {
-                            query.set("level", state.level)
-                            query.set("question-type", state.questionType)
+                        if (selectionState.level && selectionState.questionType) {
+                            query.set("level", selectionState.level)
+                            query.set("question-type", selectionState.questionType)
                             router.replace(`/specializations/${params.id}/${topic}/tests-page?${query.toString()}`)
                         }
                     }}
