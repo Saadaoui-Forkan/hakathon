@@ -13,7 +13,7 @@ const Topic = () => {
   const params = useParams<{ id: string }>();
   const router = useRouter();
   const topic = decodeURIComponent(params.id)
-  const currentSpecialization = specializationFields.filter(el => el.fieldName === topic)
+  const currentSpecialization = specializationFields.find(el => el.fieldName === topic)
 
   return (
     <PageLayout>
@@ -22,7 +22,7 @@ const Topic = () => {
       <p className="text-gray-200 mb-4">{topic}</p>
       {currentSpecialization && (
         <GridContainer>
-          {currentSpecialization[0].topics.map((el, index) => (
+          {currentSpecialization.topics.map((el, index) => (
             <Link key={index} href={`/specializations/${topic}/${el}`} className="bg-electricMagenta text-pureWhite px-4 py-2 rounded-lg">
               {el}
             </Link>
@@ -30,7 +30,7 @@ const Topic = () => {
         </GridContainer>
       )}
       <ChoiceInput
-        title='Or type a topic inside your field of specialization'
+        title={`${currentSpecialization ? "Or " : ""}type a topic inside your field of specialization`}
         inputPlaceHolder='Type the topic here...'
         onChoice={(choice) => router.replace(`/specializations/${topic}/${choice}`)}
       />
