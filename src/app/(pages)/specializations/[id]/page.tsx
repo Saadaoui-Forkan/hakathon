@@ -33,7 +33,7 @@ const Topic = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-4 bg-pureWhite rounded-lg">
           {currentSpecialization[0].topics.map((el, index) => (
             <Link
-              href={`/specializations/${topic}/quiz-selection`}
+              href={`/specializations/${topic}/${el}`}
               key={index}
               className="bg-electricMagenta text-pureWhite px-4 py-2 rounded-lg"
             >

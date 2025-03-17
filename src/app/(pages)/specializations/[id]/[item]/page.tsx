@@ -4,7 +4,9 @@ import { levels, questionTypes } from '@/constants/specializationFields'
 import { useParams, useRouter } from 'next/navigation';
 
 const QuizSelection = () => {
-    const params = useParams<{ id: string }>();
+    const params = useParams<{ item: string, id: string }>();
+    const topic = decodeURIComponent(params.item)
+    console.log(topic)
     const router = useRouter();
 
     return (
