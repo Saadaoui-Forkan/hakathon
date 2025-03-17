@@ -1,6 +1,7 @@
 "use client"
 
 import Back from '@/components/Back';
+import ChoiceInput from '@/components/ChoiceInput';
 import GridContainer from '@/components/GridContainer';
 import PageLayout from '@/components/PageLayout';
 import { specializationFields } from '@/constants/specializationFields'
@@ -22,6 +23,11 @@ const Specializations = () => {
           </Link>
         ))}
       </GridContainer>
+      <ChoiceInput
+        title='Or type your field of specialization'
+        inputPlaceHolder='Field name here...'
+        onChoice={(choice) => router.replace(`/specializations/${choice}`)}
+      />
     </PageLayout>
   )
 }
