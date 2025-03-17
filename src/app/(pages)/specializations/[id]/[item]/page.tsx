@@ -25,7 +25,7 @@ const QuizSelection = () => {
                 {levels.map(level => (
                     <button
                         key={level}
-                        className={`${selectionState.level === level ? "bg-electricMagenta/80" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
+                        className={`${selectionState.level === level ? "bg-deepAmethyst" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
                         onClick={() => setSelectionState((selectionState) => ({ ...selectionState, level }))}
                     >
                         {level}
@@ -37,7 +37,7 @@ const QuizSelection = () => {
                 {questionTypes.map(type => (
                     <button
                         key={type}
-                        className={`${selectionState.questionType === type ? "bg-electricMagenta/80" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
+                        className={`${selectionState.questionType === type ? "bg-deepAmethyst" : "bg-electricMagenta"} text-pureWhite px-4 py-2 rounded-lg`}
                         onClick={() => setSelectionState((selectionState) => ({ ...selectionState, questionType: type }))}
                     >
                         {type}
@@ -52,7 +52,7 @@ const QuizSelection = () => {
                         if (selectionState.level && selectionState.questionType) {
                             query.set("level", selectionState.level)
                             query.set("question-type", selectionState.questionType)
-                            router.replace(`/specializations/${params.id}/${topic}/tests-page?${query.toString()}`)
+                            router.push(`/specializations/${params.id}/${topic}/tests-page?${query.toString()}`)
                         }
                     }}
                 >
