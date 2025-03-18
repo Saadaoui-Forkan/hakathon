@@ -24,3 +24,9 @@ type MultiOptionsQuestion = {
     question: string;
     options: string[];
 }
+
+type DisscusionAreaMessage = {
+    role: "user" | "AI",
+    content: string,
+    id?: string
+}

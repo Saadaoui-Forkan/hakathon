@@ -9,3 +9,21 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/* Width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+  border-radius: 4px;
+}
+
+/* Handle (movable part) */
+::-webkit-scrollbar-thumb {
+  background: #56D4C8;
+  border-radius: 4px;
+}
