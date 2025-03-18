@@ -1,7 +1,7 @@
 
 type Callbacks = {
     onChunk?: (chunk: string) => void,
-    onEnd?: () => void,
+    onEnd?: (fullResponse: string) => void,
 }
 
 export default async function textStreamHandler(stream: ReadableStream, options?: Callbacks) {
@@ -9,11 +9,14 @@ export default async function textStreamHandler(stream: ReadableStream, options?
     const decoder = new TextDecoder();
 
     let done = false;
+    let fullResponse = "";
     while (!done) {
         const { value, done: readerDone } = await reader.read();
         if (readerDone) break;
-        options?.onChunk?.(decoder.decode(value))
+        const chunk = decoder.decode(value)
+        fullResponse += chunk
+        options?.onChunk?.(chunk)
     }
 
-    options?.onEnd?.()
+    options?.onEnd?.(fullResponse)
 };
