@@ -10,8 +10,8 @@ Each object should represent a question with four answer options, formatted as f
 `
 
 const trueOrFalseQuestionsPrompt = `
-Always provide the questions strictly as a valid JSON array of strings without any extra text or prefixes,
-Each string must be a "true or false" question, formatted as follows: 
+Always provide the questions strictly as a valid JSON array of string without any extra text or prefixes,
+Each string inside the JSON array must be a "true or false" question, formatted as follows: 
 ["question 1?", "question 2?", "question 3?", "question 4?"]
 `
 
