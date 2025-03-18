@@ -2,9 +2,10 @@ import { useEffect, useState } from "react"
 
 export default function useQuestions({ field, topic, level, questionType }: GenerateQuestionsParams) {
 
-    const [questions, setQuestions] = useState<string[] | MultiOptionsQuestion[]>();
+    const [questions, setQuestions] = useState<string[] | MultiOptionsQuestion[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     useEffect(() => {
         if (!loading) {
@@ -32,5 +33,14 @@ export default function useQuestions({ field, topic, level, questionType }: Gene
         loading,
         error,
         questions,
+        currentQuestionIndex,
+        goToNextQuestion() {
+            setCurrentQuestionIndex((currentIndex) => {
+                if (currentIndex < (questions.length - 1)) {
+                    return ++currentIndex
+                }
+                return currentIndex
+            })
+        }
     }
 };
