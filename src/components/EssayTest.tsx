@@ -5,18 +5,19 @@ import { FormEvent } from "react";
 type EssayTestProps = {
     question: string;
     questionNumber: number;
+    submitAnswer: (answer: string) => void
     field: string;
     topic: string;
 }
 
-export default function EssayTest({ question, questionNumber, field, topic }: EssayTestProps) {
-
+export default function EssayTest({ field, question, topic, submitAnswer, questionNumber }: EssayTestProps) {
     function onSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
         const form = new FormData(e.currentTarget)
         const answer = form.get("answer")
         if (answer) {
             console.log(answer)
+            submitAnswer(answer.toString())
         }
     }
 

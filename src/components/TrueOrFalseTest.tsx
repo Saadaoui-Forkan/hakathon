@@ -3,16 +3,12 @@
 type TrueOrFalseTestProps = {
     question: string;
     questionNumber: number;
+    submitAnswer: (answer: string) => void
     field: string;
     topic: string;
 }
 
-export default function TrueOrFalseTest({ question, questionNumber, field, topic }: TrueOrFalseTestProps) {
-
-    function answerHandler(answer: string) {
-        console.log(answer)
-    }
-
+export default function TrueOrFalseTest({ field, question, topic, submitAnswer, questionNumber }: TrueOrFalseTestProps) {
     return (
         <div className="space-y-8">
             <h1 className="text-white flex text-2xl gap-2">
@@ -20,13 +16,13 @@ export default function TrueOrFalseTest({ question, questionNumber, field, topic
             </h1>
             <div className="flex gap-10 justify-center">
                 <button
-                    onClick={() => answerHandler("true")}
+                    onClick={() => submitAnswer("true")}
                     className="bg-pureWhite px-8 py-2 rounded-lg text-xl hover:bg-crystalTeal"
                 >
                     True
                 </button>
                 <button
-                    onClick={() => answerHandler("false")}
+                    onClick={() => submitAnswer("false")}
                     className="bg-pureWhite px-8 py-2 rounded-lg text-xl hover:bg-crystalTeal"
                 >
                     False
