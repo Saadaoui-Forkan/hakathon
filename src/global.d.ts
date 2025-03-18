@@ -11,7 +11,8 @@ type GenerateQuestionsParams = {
 type EvaluateAnswerParams = {
     answer: string;
     question: string;
-} & Pick<GenerateQuestionsParams, "field" | "topic">
+    options: string[]
+} & Pick<GenerateQuestionsParams, "field" | "topic" | "questionType">
 
 type SpecializationFieldSuggestion = {
     fieldName: string;
