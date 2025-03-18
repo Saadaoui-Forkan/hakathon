@@ -60,27 +60,24 @@ const TestingPage = () => {
                             questionType === "multi options" ? (
                                 <MultiOptionsTest
                                     multiOptionsQuestion={questions[currentQuestionIndex] as MultiOptionsQuestion}
-                                    field={field}
-                                    topic={topic}
                                     submitAnswer={submitAnswer}
                                     questionNumber={currentQuestionIndex + 1}
+                                    disabled={!!chosenAnswer}
                                 />
                             ) :
                                 questionType === "true or false" ? (
                                     <TrueOrFalseTest
-                                        field={field}
-                                        topic={topic}
                                         questionNumber={currentQuestionIndex + 1}
                                         question={questions[currentQuestionIndex] as string}
                                         submitAnswer={submitAnswer}
+                                        disabled={!!chosenAnswer}
                                     />
                                 ) : questionType === "essay" ? (
                                     <EssayTest
-                                        field={field}
-                                        topic={topic}
                                         questionNumber={currentQuestionIndex + 1}
                                         question={questions[currentQuestionIndex] as string}
                                         submitAnswer={submitAnswer}
+                                        disabled={!!chosenAnswer}
                                     />
                                 ) : null
                 }

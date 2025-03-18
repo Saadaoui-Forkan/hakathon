@@ -1,13 +1,12 @@
 "use client"
 
 type MultiOptionsTestProps = {
-    field: string;
-    topic: string;
     multiOptionsQuestion: MultiOptionsQuestion
     questionNumber: number;
-    submitAnswer: (answer: string) => void
+    submitAnswer: (answer: string) => void;
+    disabled: boolean;
 }
-export default function MultiOptionsTest({ multiOptionsQuestion, field, topic, questionNumber, submitAnswer }: MultiOptionsTestProps) {
+export default function MultiOptionsTest({ multiOptionsQuestion, questionNumber, submitAnswer }: MultiOptionsTestProps) {
 
     return (
         <div>
