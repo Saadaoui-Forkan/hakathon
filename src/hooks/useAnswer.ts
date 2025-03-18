@@ -1,5 +1,5 @@
 import textStreamHandler from "@/lib/textStreamHandler";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 type UseAnswerProps = {
     question: string;
@@ -53,6 +53,14 @@ export default function useAnswer({ field, topic, questionType, question }: UseA
                 })
         }
     }
+
+    useEffect(() => {
+        response && setResponse("")
+        loading && setLoading(false)
+        error && setError(false)
+        done && setDone(false)
+        responding && setResponding(false)
+    }, [question])
 
     return {
         loading,
