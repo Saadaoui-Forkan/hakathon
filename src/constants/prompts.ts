@@ -11,7 +11,7 @@ Each object should represent a question with four answer options, formatted as f
 
 const trueOrFalseQuestionsPrompt = `
 Always provide the questions strictly as a valid JSON array of strings without any extra text or prefixes,
-Each string should represent a question in true or false type, formatted as follows: 
+Each string must be a "true or false" question, formatted as follows: 
 ["question 1?", "question 2?", "question 3?", "question 4?"]
 `
 
@@ -36,7 +36,7 @@ the question is a multi-options question, The available options for the user are
 "${options[0]}", "${options[1]}", "${options[2]}", and "${options[3]}"
 `
 
-const trueOrFalseAnswerContextPrompt = 'the question is a "true or false" where the user has to answer by "true" or "false"'
+const trueOrFalseAnswerContextPrompt = 'the question is a "true or false" question, So the user has to answer by "true" or "false"'
 
 export function getAnswerTypeContextPrompt(type: GenerateQuestionsParams["questionType"], options?: string[]) {
 
