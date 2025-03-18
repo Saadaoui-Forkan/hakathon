@@ -12,7 +12,7 @@ const config: Config = {
         deepAmethyst: "#610072",
         pureWhite: "#FFFFFF",
         electricMagenta: "#B600C6",
-        crystalTeal : "#56D4C8",
+        crystalTeal: "#56D4C8",
       },
       fontFamily: {
         cairo: ['"Cairo", sans-serif'],

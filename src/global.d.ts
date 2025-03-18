@@ -11,6 +11,7 @@ type GenerateQuestionsParams = {
 type EvaluateAnswerParams = {
     answer: string;
     question: string;
+    existingDiscussionId: string | null;
     options: string[]
 } & Pick<GenerateQuestionsParams, "field" | "topic" | "questionType">
 
