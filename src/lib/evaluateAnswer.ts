@@ -6,6 +6,8 @@ import { getAnswerTypeContextPrompt } from '@/constants/prompts';
 export default async function evaluateAnswer(
     { field, topic, answer, question, existingDiscussionId, questionType, options }: EvaluateAnswerParams
 ) {
+    const discussionHistory = existingDiscussionId ? getChatMessages(existingDiscussionId) : []
+
     const response = await ollamaClient.chat({
         model: modelName,
         messages: [
@@ -20,7 +22,7 @@ export default async function evaluateAnswer(
                     Make your correction to the point and directed to the user as you talk to him.
                 `,
             },
-            ...(existingDiscussionId ? getChatMessages(existingDiscussionId) : []),
+            ...discussionHistory,
             {
                 role: "user",
                 content: answer,
@@ -52,9 +54,9 @@ export default async function evaluateAnswer(
             }
 
             if (existingDiscussionId) {
-                createChat(existingDiscussionId, [newUserAnswer, newAIResponse])
+                addMessagesToChat(existingDiscussionId, [newUserAnswer, newAIResponse])
             } else {
-                addMessagesToChat(discussionId, [newUserAnswer, newAIResponse])
+                createChat(discussionId, [newUserAnswer, newAIResponse])
             }
         },
     })
