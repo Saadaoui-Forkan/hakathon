@@ -7,6 +7,7 @@ type UseAnswerProps = {
 
 export default function useAnswer({ field, topic, questionType, question }: UseAnswerProps) {
     const [response, setResponse] = useState("");
+    const [chosenAnswer, setChosenAnswer] = useState<null | string>(null);
     const [responding, setResponding] = useState(false);
     const [loading, setLoading] = useState(false);
     const [done, setDone] = useState(false);
@@ -16,11 +17,13 @@ export default function useAnswer({ field, topic, questionType, question }: UseA
     function submitAnswer(answer: string, context?: { options?: string[] }) {
         if (!loading) {
             setLoading(true)
+            setChosenAnswer(answer)
 
             const query = new URLSearchParams()
             query.set("field", field)
             query.set("topic", topic)
             query.set("question-type", questionType)
+            console.log(question)
 
             fetch(`/api/answers?${query.toString()}`, {
                 method: "POST",
@@ -60,6 +63,7 @@ export default function useAnswer({ field, topic, questionType, question }: UseA
         error && setError(false)
         done && setDone(false)
         responding && setResponding(false)
+        setChosenAnswer(null)
     }, [question])
 
     return {
@@ -70,5 +74,6 @@ export default function useAnswer({ field, topic, questionType, question }: UseA
         response,
         done,
         discussionId,
+        chosenAnswer,
     }
 };
