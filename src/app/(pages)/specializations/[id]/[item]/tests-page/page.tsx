@@ -9,6 +9,7 @@ import EssayTest from '@/components/EssayTest';
 import DisscusionArea from '@/components/DisscusionArea';
 import MultiOptionsTest from '@/components/MultiOptionsTest';
 import useAnswer from '@/hooks/useAnswer';
+import ProgressBar from '@/components/ProgressBar';
 
 const TestingPage = () => {
     const router = useRouter();
@@ -55,7 +56,11 @@ const TestingPage = () => {
         <PageLayout>
             <div className='flex flex-col space-y-10'>
                 {
-                    questionsLoading ? "Loading..." :
+                    !questionsLoading && !questionsError &&
+                    <ProgressBar total={questions.length} value={currentQuestionIndex + 1} />
+                }
+                {
+                    questionsLoading ? <p className='text-white text-3xl'>Preparing your test...</p> :
                         questionsError ? "Error !!!" :
                             questionType === "multi options" ? (
                                 <MultiOptionsTest
