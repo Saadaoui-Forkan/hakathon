@@ -67,7 +67,7 @@ const TestingPage = () => {
                                     multiOptionsQuestion={questions[currentQuestionIndex] as MultiOptionsQuestion}
                                     submitAnswer={submitAnswer}
                                     questionNumber={currentQuestionIndex + 1}
-                                    disabled={!!chosenAnswer}
+                                    chosenAnswer={chosenAnswer}
                                 />
                             ) :
                                 questionType === "true or false" ? (
@@ -75,7 +75,7 @@ const TestingPage = () => {
                                         questionNumber={currentQuestionIndex + 1}
                                         question={questions[currentQuestionIndex] as string}
                                         submitAnswer={submitAnswer}
-                                        disabled={!!chosenAnswer}
+                                        chosenAnswer={chosenAnswer}
                                     />
                                 ) : questionType === "essay" ? (
                                     <EssayTest

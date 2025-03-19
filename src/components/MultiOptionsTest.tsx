@@ -4,9 +4,9 @@ type MultiOptionsTestProps = {
     multiOptionsQuestion: MultiOptionsQuestion
     questionNumber: number;
     submitAnswer: (answer: string) => void;
-    disabled: boolean;
+    chosenAnswer: string | null;
 }
-export default function MultiOptionsTest({ multiOptionsQuestion, questionNumber, submitAnswer }: MultiOptionsTestProps) {
+export default function MultiOptionsTest({ multiOptionsQuestion, questionNumber, submitAnswer, chosenAnswer }: MultiOptionsTestProps) {
 
     return (
         <div>
