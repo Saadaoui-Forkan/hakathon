@@ -14,7 +14,9 @@ export default async function generateQuestions({ field, level, topic, questionT
         prompt: `Generate 5 ${level} questions to test users knowledge in "${topic}" topic`,
     })
 
-    const questions = JSON.parse(result.response)
+    const questions = JSON.parse(
+        result.response.replaceAll(/(```json|```)/g, "")
+    )
 
     return questions
 }

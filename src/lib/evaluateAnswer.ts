@@ -19,7 +19,7 @@ export default async function evaluateAnswer(
                     evaluate user's answer to "${question}" question in ${topic} topic whether it is right or wrong,
                     ${getAnswerTypeContextPrompt(questionType, options)},
                     correct the user if his answer is wrong, incomplete or lacks something.
-                    Make your correction to the point and directed to the user as you talk to him.
+                    Make your feedback brief, to the point and directed to the user as you talk to him.
                 `,
             },
             ...discussionHistory,
