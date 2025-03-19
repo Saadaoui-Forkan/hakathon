@@ -20,7 +20,7 @@ const QuizSelection = () => {
     return (
         <PageLayout>
             <Back onClick={() => router.replace(`/specializations/${params.id}`)} />
-            <h2 className="text-white text-2xl font-bold">Select level of the test</h2>
+            <h2 className="text-white text-2xl font-bold mb-2">Select the level of the test</h2>
             <GridContainer>
                 {levels.map(level => (
                     <button
@@ -32,7 +32,7 @@ const QuizSelection = () => {
                     </button>
                 ))}
             </GridContainer>
-            <h2 className="text-white text-2xl font-bold">Select Type of the test</h2>
+            <h2 className="text-white text-2xl font-bold mb-2 mt-4">Select the type of the test</h2>
             <GridContainer>
                 {questionTypes.map(type => (
                     <button

@@ -16,6 +16,7 @@ export default function EssayTest({ question, submitAnswer, questionNumber, disa
         const answer = form.get("answer")
         if (answer) {
             submitAnswer(answer.toString())
+            e.currentTarget.reset()
         }
     }
 

@@ -23,7 +23,6 @@ export default function useAnswer({ field, topic, questionType, question }: UseA
             query.set("field", field)
             query.set("topic", topic)
             query.set("question-type", questionType)
-            console.log(question)
 
             fetch(`/api/answers?${query.toString()}`, {
                 method: "POST",
