@@ -16,14 +16,14 @@ export default function TrueOrFalseTest({ question, submitAnswer, questionNumber
             <div className="flex gap-10 justify-center">
                 <button
                     onClick={() => submitAnswer("true")}
-                    className={`${chosenAnswer === "true" ? "bg-crystalTeal" : "bg-pureWhite"} px-8 py-2 rounded-lg text-xl hover:bg-crystalTeal`}
+                    className={`${chosenAnswer === "true" ? "bg-crystalTeal" : "bg-pureWhite"} px-8 py-2 rounded-lg text-xl ${chosenAnswer ? "" : "hover:bg-crystalTeal"}`}
                     disabled={!!chosenAnswer}
                 >
                     True
                 </button>
                 <button
                     onClick={() => submitAnswer("false")}
-                    className={`${chosenAnswer === "false" ? "bg-crystalTeal" : "bg-pureWhite"} px-8 py-2 rounded-lg text-xl hover:bg-crystalTeal`}
+                    className={`${chosenAnswer === "false" ? "bg-crystalTeal" : "bg-pureWhite"} px-8 py-2 rounded-lg text-xl ${chosenAnswer ? "" : "hover:bg-crystalTeal"}`}
                     disabled={!!chosenAnswer}
                 >
                     False
