@@ -1,1 +1,1 @@
-export const modelName = "qwen2.5:3b-instruct"
+export const modelName = "gemma3:4b"
