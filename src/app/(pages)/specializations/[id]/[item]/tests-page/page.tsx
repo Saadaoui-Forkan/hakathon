@@ -10,6 +10,7 @@ import DisscusionArea from '@/components/DisscusionArea';
 import MultiOptionsTest from '@/components/MultiOptionsTest';
 import useAnswer from '@/hooks/useAnswer';
 import ProgressBar from '@/components/ProgressBar';
+import TestsPageNavigationButtuns from '@/components/TestsPageNavigationButtuns';
 
 const TestingPage = () => {
     const router = useRouter();
@@ -51,6 +52,8 @@ const TestingPage = () => {
         question: currentQuestion,
         questionType,
     })
+
+    const isTheLastQuestion = currentQuestionIndex === (questions.length - 1)
 
     return (
         <PageLayout>
@@ -104,12 +107,10 @@ const TestingPage = () => {
                 }
                 {
                     responseDone &&
-                    <button
-                        className="bg-crystalTeal text-white px-8 py-3 w-fit rounded-lg mb-4 mx-auto cursor-pointer"
-                        onClick={goToNextQuestion}
-                    >
-                        Next Question
-                    </button>
+                    <TestsPageNavigationButtuns
+                        goToNextQuestion={goToNextQuestion}
+                        isTheLastQuestion={isTheLastQuestion}
+                    />
                 }
             </div>
         </PageLayout>
