@@ -13,10 +13,15 @@ in the topics of your field of specialization with AI in an interactive way
 
 ### Prerequisites :gear:
 
-[**Ollama** platform](https://ollama.com/)
+- [**Node.js** runtime](https://nodejs.org/)
 
-The used platform to run the large language mode (LLM) that handles generating
-the questions and the feedbacks.
+- [**Ollama** platform](https://ollama.com/)
+
+  We used **Ollama** platform to run the large language model
+  ([**Gemma 3** model](https://ollama.com/library/gemma3)) that handles
+  generating the questions and the feedbacks. So you have to install **Ollama**
+  platform and **Gemma 3** model inside it to be able to run our web app
+  properly
 
 ### Installation :arrow_down:
 
